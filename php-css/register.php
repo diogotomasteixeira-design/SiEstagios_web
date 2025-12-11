@@ -36,7 +36,8 @@
     if($stmt -> execute()){
         echo "You have successfully registered. Your ID is: $id";
     } else{
-        echo 'Error; ' . $stmt ->error;
+        header("Location: ../html/register_invalid.html?error=1");
+        exit;
     }
     
     $stmt -> close();

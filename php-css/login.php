@@ -21,11 +21,10 @@
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-    // Utilizador existe
         $user = $result->fetch_assoc();
         echo "Bem-vindo, " . htmlspecialchars($user['nome']) . "!";
     } else {
-        header("Location: login_invalid.html?error=1");
+        header("Location: ../html/login_invalid.html?error=1");
         exit;
     }
 
