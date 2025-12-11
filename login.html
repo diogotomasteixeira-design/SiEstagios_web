@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <meta http-equiv="Content-Type" content="text/html:charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SiEstagios</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <form action="login.php" method="post">
+                <h1>Login</h1>
+
+                <div class="form-input">
+                    <input type="number" placeholder="ID" required name="id">
+                    <i class="ri-info-card-line"></i>
+                </div>
+
+                <div class="form-input">
+                    <input type="text" placeholder="Nome" required name="nome">
+                    <i class="ri-user-line"></i>
+                </div>
+
+                <div class="form-input">
+                    <input type="password" placeholder="Password" required name="password">
+                    <i class="ri-lock-line"></i>
+                </div>
+
+                <button type="submit" class="btn">Sign In</button>
+
+                <p class="form-footer-login">
+                    Don't have an account?
+                    <a href="./register.html" class="form-footer-link">Register</a>
+                </p>
+            </form>
+    </body>
+</html>
