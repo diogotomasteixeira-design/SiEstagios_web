@@ -4,7 +4,7 @@
     $host = 'localhost';
     $dbusername = 'root';
     $dbpassword = '';
-    $dbname = 'siestagios_p2';
+    $dbname = 'projeto_estagios_2';
 
     $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
@@ -34,9 +34,31 @@
     $stmt -> bind_param('issss', $id, $login, $tipo, $nome, $password);
 
     if($stmt -> execute()){
-        echo "You have successfully registered. Your ID is: $id";
+
+        $_SESSION['user_id'] = $user['utilizador_id'];
+        $_SESSION['tipo'] = $user['tipo'];
+        $_SESSION['nome'] = $user['nome'];
+
+        switch ($tipo) {
+            
+            case 'aluno':
+                header("Location: ../Grafica/portal_aluno.php");
+                exit;
+
+            case 'formador':
+                header("Location: ../Grafica/portal_formador.php");
+                exit;
+
+            case 'administrativo':
+                header("Location: ../Grafica/portal_administrador.php");
+                exit;
+
+            default:
+                echo "Tipo de utilizador desconhecido.";
+                exit;
+        }
     } else{
-        header("Location: ../html/register_invalid.html?error=1");
+        header("Location: ../Grafica/register_invalid.html?error=1");
         exit;
     }
     

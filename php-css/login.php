@@ -3,7 +3,7 @@
     $host = 'localhost';
     $dbusername = 'root';
     $dbpassword = '';
-    $dbname = 'siestagios_p2';
+    $dbname = 'projeto_estagios_2';
 
     $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
@@ -20,11 +20,33 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        echo "Bem-vindo, " . htmlspecialchars($user['nome']) . "!";
+
+        $_SESSION['user_id'] = $user['utilizador_id'];
+        $_SESSION['tipo'] = $user['tipo'];
+        $_SESSION['nome'] = $user['nome'];
+
+        switch ($user['tipo']) {
+            
+            case 'aluno':
+                header("Location: ../Grafica/portal_aluno.php");
+                exit;
+
+            case 'formador':
+                header("Location: ../Grafica/portal_formador.php");
+                exit;
+
+            case 'administrativo':
+                header("Location: ../Grafica/portal_administrador.php");
+                exit;
+
+            default:
+                echo "Tipo de utilizador desconhecido.";
+                exit;
+        }
     } else {
-        header("Location: ../html/login_invalid.html?error=1");
+        header("Location: ../Grafica/login_invalid.html?error=1");
         exit;
     }
 
