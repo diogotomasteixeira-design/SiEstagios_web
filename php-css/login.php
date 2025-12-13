@@ -20,11 +20,33 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        echo "Bem-vindo, " . htmlspecialchars($user['nome']) . "!";
+
+        $_SESSION['user_id'] = $user['utilizador_id'];
+        $_SESSION['tipo'] = $user['tipo'];
+        $_SESSION['nome'] = $user['nome'];
+
+        switch ($user['tipo']) {
+            
+            case 'aluno':
+                header("Location: ../Grafica/portal_aluno.html");
+                exit;
+
+            case 'formador':
+                header("Location: ../Grafica/portal_formador.html");
+                exit;
+
+            case 'administrativo':
+                header("Location: ../Grafica/portal_administrador.html");
+                exit;
+
+            default:
+                echo "Tipo de utilizador desconhecido.";
+                exit;
+        }
     } else {
-        header("Location: ../html/login_invalid.html?error=1");
+        header("Location: ../Grafica/login_invalid.html?error=1");
         exit;
     }
 
