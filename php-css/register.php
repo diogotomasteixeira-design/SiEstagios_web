@@ -4,7 +4,7 @@
     $host = 'localhost';
     $dbusername = 'root';
     $dbpassword = '';
-    $dbname = 'siestagios_p2';
+    $dbname = 'projeto_estagios_2';
 
     $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
@@ -58,6 +58,7 @@
                 exit;
         }
     } else{
+        header("Location: ../Grafica/register_invalid.html?error=1");
         header("Location: ../Grafica/register_invalid.html?error=1");
         exit;
     }

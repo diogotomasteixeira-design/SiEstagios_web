@@ -3,7 +3,7 @@
     $host = 'localhost';
     $dbusername = 'root';
     $dbpassword = '';
-    $dbname = 'siestagios_p2';
+    $dbname = 'projeto_estagios_2';
 
     $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
@@ -20,6 +20,7 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
+    if ($result->num_rows === 1) {
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
@@ -46,6 +47,7 @@
                 exit;
         }
     } else {
+        header("Location: ../Grafica/login_invalid.html?error=1");
         header("Location: ../Grafica/login_invalid.html?error=1");
         exit;
     }
