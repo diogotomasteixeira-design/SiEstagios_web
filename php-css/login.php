@@ -8,7 +8,7 @@
     $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
     if ($conn -> connect_error){
-        die('Connect Error ('.$conn -> connect_errno .') ' .$conn ->connect_error);
+        die('Erro de ligação à base de dados.');
     }
 
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -20,7 +20,7 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
+
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
 

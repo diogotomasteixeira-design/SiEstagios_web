@@ -9,7 +9,7 @@
     $conn = new mysqli($host, $dbusername, $dbpassword, $dbname);
 
     if ($conn -> connect_error){
-        die('Connect Error ('.$conn -> connect_errno .') ' .$conn ->connect_error);
+        die('Erro de ligação à base de dados.');
     } 
 
     $result = $conn->query("SELECT MAX(utilizador_id) AS max_id FROM utilizador");
