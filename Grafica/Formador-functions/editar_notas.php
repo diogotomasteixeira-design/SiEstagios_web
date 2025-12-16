@@ -26,7 +26,7 @@
         $nota_procura = $_POST['nota_procura'] ?: null;
 
         $notas = array_filter([$nota_empresa, $nota_escola, $nota_relatorio, $nota_procura], fn($n) => $n !== null);
-        $nota_final = !empty($notas) ? array_sum($notas) / count($notas) : null;
+        $nota_final = !empty($notas) ? round(array_sum($notas) / count($notas)) : null;
 
         $stmt = $conn->prepare("
             UPDATE estagio SET
@@ -93,11 +93,12 @@
             href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../php-css/style-admin.css">
+        <link rel="stylesheet" href="../../php-css/style-formador.css">
     </head>
     <body>
-        <h1>Editar Notas do Estágio de <?= htmlspecialchars($estagio['nome_aluno']) ?>
-    </h1>
+        <h1>
+            Editar Notas do Estágio de <?= htmlspecialchars($estagio['nome_aluno']) ?>
+        </h1>
 
         <?php if ($erro): ?>
             <p style="color:red; font-weight:bold;"><?= htmlspecialchars($erro) ?></p>
@@ -105,20 +106,30 @@
 
         <?php if (!$erro): ?>
             <form method="post">
-                <label>Nota Empresa:</label>
-                <input type="number" step="0.1" name="nota_empresa" value="<?= htmlspecialchars($estagio['nota_empresa']) ?>"><br>
+                <div class="form-row">
+                    <label>Nota Empresa:</label>
+                    <input type="number" step="0.1" name="nota_empresa" value="<?= htmlspecialchars($estagio['nota_empresa']) ?>"><br>
+                </div>
 
-                <label>Nota Escola:</label>
-                <input type="number" step="0.1" name="nota_escola" value="<?= htmlspecialchars($estagio['nota_escola']) ?>"><br>
+                <div class="form-row">
+                    <label>Nota Escola:</label>
+                    <input type="number" step="0.1" name="nota_escola" value="<?= htmlspecialchars($estagio['nota_escola']) ?>"><br>
+                </div>
 
-                <label>Nota Relatório:</label>
-                <input type="number" step="0.1" name="nota_relatorio" value="<?= htmlspecialchars($estagio['nota_relatorio']) ?>"><br>
+                <div class="form-row">
+                    <label>Nota Relatório:</label>
+                    <input type="number" step="0.1" name="nota_relatorio" value="<?= htmlspecialchars($estagio['nota_relatorio']) ?>"><br>
+                </div>
 
-                <label>Nota Procura:</label>
-                <input type="number" step="0.1" name="nota_procura" value="<?= htmlspecialchars($estagio['nota_procura']) ?>"><br>
+                <div class="form-row">
+                    <label>Nota Procura:</label>
+                    <input type="number" step="0.1" name="nota_procura" value="<?= htmlspecialchars($estagio['nota_procura']) ?>"><br>
+                </div>
 
-                <label>Nota Final (calculada automaticamente):</label>
-                <input type="number" step="0.1" name="nota_final" value="<?= htmlspecialchars($estagio['nota_final']) ?>" readonly><br>
+                <div class="form-row">
+                    <label>Nota Final (calculada automaticamente):</label>
+                    <input type="number" step="0.1" name="nota_final" value="<?= htmlspecialchars($estagio['nota_final']) ?>" readonly><br>
+                </div>
 
                 <button type="submit" name="submit">Salvar Notas</button>
             </form>

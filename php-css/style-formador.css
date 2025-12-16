@@ -1,8 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Fjalla+One&family=Roboto+Slab:wght@100..900&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
 
-*{
-    margin : 0;
-    padding : 0;
-    box-sizing : border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Syne', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url(../Imagens/bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    color: #352001;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+table {
+    margin: 0 auto 30px auto;
+    width: 95%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #140202a6;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: transparent;
+    margin-top: 100px;
+}
+
+th, td {
+    padding: 12px 14px;
+    text-align: center;
+    border: 1px solid #140202;
+    color: #1f0707;
+    white-space: nowrap;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.15);
+    font-weight: 700;
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+td a {
+    color: #572d2d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+td:nth-child(1), th:nth-child(1) { min-width: 180px; } /* Aluno */
+td:nth-child(9), th:nth-child(9) { min-width: 140px; } /* Ações */
+
+p {
+    text-align: center;
+    margin-top: 25px;
+}
+
+p a {
+    display: center;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #8d8273;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+input{
+    background : transparent;
+    border: 1px solid #140202;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+form{
+    text-align : center;
+}
+
+label{
+    font-weight : bold;
+    color : #140202; 
+    margin-right: 10px;
+}
+
+.form-row {
+    margin-bottom: 10px;
+}
+
+button{
+    background-color: transparent;
+    color: #140202; 
+    font-size : 20px;
+    border: transparent;
+}
+
+button:hover{
+    text-decoration: underline; 
 }

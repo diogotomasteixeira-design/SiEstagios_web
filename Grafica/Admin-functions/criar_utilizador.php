@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
             href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../php-css/style-admin.css">
+        <link rel="stylesheet" href="../../php-css/style-admin.css">
     </head>
     <body>
         <h1>Criar Novo Utilizador (Aluno)</h1>
@@ -72,7 +72,9 @@ if (isset($_POST['submit'])) {
             <button type="submit" name="submit">Criar utilizador</button>
 
             <p>
-                <a href="adicionar_aluno">Registar aluno</a>
+                <div class="form-footers">
+                    <a href="adicionar_aluno.php">Registar aluno</a>
+                </div>
             </p>
         </form>
 

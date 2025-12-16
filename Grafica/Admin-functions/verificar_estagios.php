@@ -49,7 +49,7 @@
         href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
         rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../php-css/style-admin-estagios.css">
+    <link rel="stylesheet" href="../../php-css/style-admin.css">
     </head>
 
     <body>
@@ -74,12 +74,14 @@
                 <td><?= htmlspecialchars($row['aluno_nome']) ?></td>
                 <td><?= htmlspecialchars($row['formador_nome']) ?></td>
                 <td>
-                    <?php if (is_null($row['data_fim']) || strtotime($row['data_fim']) >= time()): ?>
-                        <a href="editar_estagio.php?empresa_id=<?= $row['estabelecimento_empresa_id'] ?>&estabelecimento_id=<?= $row['estabelecimento_id'] ?>&aluno_id=<?= $row['aluno_id'] ?>&formador_id=<?= $row['formador_id'] ?>">Editar</a> |
-                        <a href="?delete_empresa_id=<?= $row['estabelecimento_empresa_id'] ?>&delete_estabelecimento_id=<?= $row['estabelecimento_id'] ?>&delete_aluno_id=<?= $row['aluno_id'] ?>" onclick="return confirm('Tem a certeza?')">Apagar</a>
-                    <?php else: ?>
-                        -
-                    <?php endif; ?>
+                    <div class="form-footers">
+                        <?php if (is_null($row['data_fim']) || strtotime($row['data_fim']) >= time()): ?>
+                            <a href="editar_estagio.php?empresa_id=<?= $row['estabelecimento_empresa_id'] ?>&estabelecimento_id=<?= $row['estabelecimento_id'] ?>&aluno_id=<?= $row['aluno_id'] ?>&formador_id=<?= $row['formador_id'] ?>">Editar</a> |
+                            <a href="?delete_empresa_id=<?= $row['estabelecimento_empresa_id'] ?>&delete_estabelecimento_id=<?= $row['estabelecimento_id'] ?>&delete_aluno_id=<?= $row['aluno_id'] ?>" onclick="return confirm('Tem a certeza?')">Apagar</a>
+                        <?php else: ?>
+                            -
+                        <?php endif; ?>
+                    </div>
                 </td>
 
             </tr>
@@ -88,8 +90,14 @@
 
         </table>
 
-        <p class="form-footer-login">
-            <a href="registar_estagios.php" class="portal-btn">Registar Novo Estágio</a>
+        <p>
+            <div class="form-footers">
+                <a href="registar_estagios.php" class="portal-btn">Registar Novo Estágio</a>
+            </div>
+
+            <div class="form-footers">
+                <a href="../portal_administrador.html">Voltar</a>
+            </div>
         </p>
 
     </body>

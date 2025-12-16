@@ -23,16 +23,26 @@
         $stmt->execute();
         $stmt->store_result();
 
+        $stmt = $conn->prepare("SELECT 1 FROM utilizador WHERE utilizador_id = ? LIMIT 1");
+        $stmt->bind_param("i", $utilizador_id);
+        $stmt->execute();
+        $stmt->store_result();
+
         if ($stmt->num_rows === 0) {
             $erro = "O utilizador com ID $utilizador_id não existe. <a href='criar_utilizador.php'>Criar utilizador</a>";
         } else {
             $stmt2 = $conn->prepare("INSERT INTO aluno (utilizador_id, turma_id, numero, observacoes) VALUES (?, ?, ?, ?)");
             $stmt2->bind_param("iiis", $utilizador_id, $turma_id, $numero, $observacoes);
 
-            if ($stmt2->execute()) {
+            try {
+                $stmt2->execute();
                 $sucesso = "Aluno registado com sucesso!";
-            } else {
-                $erro = "Erro ao registar aluno: " . $stmt2->error;
+            } catch (mysqli_sql_exception $e) {
+                if (strpos($e->getMessage(), 'Duplicate entry') !== false) {
+                    $erro = "O aluno com ID $utilizador_id já está registado.";
+                } else {
+                    $erro = "Erro ao registar aluno: " . $e->getMessage();
+                }
             }
         }
     }
@@ -49,7 +59,7 @@
             href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../php-css/style-admin.css">
+        <link rel="stylesheet" href="../../php-css/style-admin.css">
     </head>
     <body>
         <h1>Registar Novo Aluno</h1>
@@ -63,31 +73,44 @@
         <?php endif; ?>
 
         <form method="post">
-            <label>Utilizador ID:</label>
-            <input type="number" name="utilizador_id" required><br>
+            <div class="form-row">
+                <label>Utilizador ID:</label>
+                <input type="number" name="utilizador_id" required><br>
+            </div>
 
-            <label>Turma:</label>
-            <select name="turma_id" required>
-                <option value="">Selecione uma turma</option>
-                <?php while($turma = $turmas_result->fetch_assoc()): ?>
-                    <option value="<?= $turma['turma_id'] ?>">
-                        <?= htmlspecialchars($turma['sigla'] . ' (' . $turma['ano'] . ')') ?>
-                    </option>
-                <?php endwhile; ?>
-            </select><br>
+            <div class="form-row">
+                <label>Turma:</label>
+                <select name="turma_id" required>
+                    <option value="">Selecione uma turma</option>
+                    <?php while($turma = $turmas_result->fetch_assoc()): ?>
+                        <option value="<?= $turma['turma_id'] ?>">
+                            <?= htmlspecialchars($turma['sigla'] . ' (' . $turma['ano'] . ')') ?>
+                        </option>
+                    <?php endwhile; ?>
+                </select><br>
+            </div>
 
-            <label>Número:</label>
-            <input type="number" name="numero"><br>
+            <div class="form-row">
+                <label>Número:</label>
+                <input type="number" name="numero"><br>
+            </div>
 
-            <label>Observações:</label>
-            <input type="text" name="observacoes"><br>
+            <div class="form-row">
+                <label>Observações:</label>
+                <input type="text" name="observacoes"><br>
+            </div>
 
             <button type="submit" name="submit">Registar Aluno</button>
         </form>
 
         <p>
-            <a href="../portal_administrador.html">Voltar ao Portal</a>
-            <a href="criar_utilizador.php">Criar utilizador(aluno)</a>
+            <div class="form-footers">
+                <a href="../portal_administrador.html">Voltar ao Portal</a>
+            </div>
+
+            <div class="form-footers">
+                <a href="criar_utilizador.php">Criar utilizador(aluno)</a>
+            </div>
         </p>
     </body>
 </html>

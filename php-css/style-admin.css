@@ -1,67 +1,149 @@
+/* style-adicionar-aluno.css */
 @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Fjalla+One&family=Roboto+Slab:wght@100..900&family=Syne:wght@400..800&display=swap');
 
 *{
-    margin : 0;
-    padding : 0;
-    box-sizing : border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Syne', sans-serif;
 }
 
 body{
-    display : flex;
-    justify-content : center;
-    min-height : 100vh;
-    align-items : center;
-    background : url(../Imagens/bg.png) no-repeat;
-    background-size : cover;
-    background-position : center;
-}
-
-.container{
-    width: 800px;
-    height : 300px;
-    border: 40px solid rgba(48, 29, 12, 0.2);
-    padding: 40px;
-    border-radius: 160px;
-    text-align: center;
-    box-shadow: 
-        0 0 0 2px rgba(27, 16, 7, 0.4),
-        inset 0 0 0 2px rgba(27, 16, 7, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    background: url(../Imagens/bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 h1{
-    color : #352001;
-    font-size : 35px;
-    font-weight : 900;
+    color: #352001;
+    font-size: 35px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+form {
+    position : center;
     text-align : center;
-    margin-top : 8px;
+    background: transparent;
+    padding: 25px;
+    width: 400px;
+    color: #140202;
 }
 
-.portal-menu{
-    display : flex;
-    justify-content : center;
-    background-position : center;
+button {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 8px 20px;
+    border: none;
+    background-color: #35200185;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.portal-item{
-    width : 90%;
-    height : 100%;
+button:hover {
+    background-color: #543000;
+}
+
+.success {
+    color: rgb(85, 190, 85);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: rgb(214, 94, 94);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+label{
+    font-weight : bold;
+    color : #140202; 
+    margin-right: 10px;
+}
+
+input{
     background : transparent;
-    outline : none;
-    font-size : 15px;
+    border: 1px solid #140202;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+select{
     text-align : center;
-    border-radius : 4px;
-    margin-top : 20px;
+    background : transparent;
+    border: 1px solid #140202;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
 }
 
-.portal-btn{
-    font-weight: 650; 
-    color: #8d8273; 
-    text-decoration: none; 
-    font-size : 20px;
-    font-weight : 600;
+.form-footers {
+    text-align: center;  
+    margin: 10px 0;   
+    color: #1f1b17;  
 }
 
-.portal-btn:hover {
-    text-decoration: underline; 
+.form-footers a {  
+    color: #1f1b17;      
+    text-decoration: none;    
+    font-weight: 600;    
+    transition: all 0.2s ease;
+}
+
+.form-footers a:hover {
+    text-decoration: underline;
+}
+
+.form-row {
+    margin-bottom: 7px;
+}
+
+
+table {
+    width: 90%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #140202;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 auto 25px auto;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #140202;
+    white-space: nowrap;
+    color: #1f0707;
+}
+
+th {
+    background-color: rgba(0,0,0,0.15);
+    font-weight: bold;
+}
+
+td a {
+    color: #352001;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+td a:hover {
+    text-decoration: underline;
+    color: #543000;
 }

@@ -6,3 +6,124 @@
     box-sizing : border-box;
     font-family: 'Syne', sans-serif;
 }
+
+body{
+    display : flex;
+    justify-content : center;
+    min-height : 100vh;
+    align-items : center;
+    background : url(../Imagens/bg.png) no-repeat;
+    background-size : cover;
+    background-position : center;
+}
+
+h1{
+    color : #352001;
+    font-size : 35px;
+    font-weight : 900;
+    text-align : center;
+    margin-bottom : 35px;
+}
+
+form{
+    text-align : center;
+    color : #140202;
+    margin-bottom : 7px;
+}
+
+select {
+    background-color: transparent;
+    color: inherit; 
+    border: 1px solid #140202;
+    width : 200px;
+    text-align: center;
+}
+
+button{
+    background-color: transparent;
+    color: inherit; 
+    width : 70px;
+    border: transparent;
+}
+
+button:hover{
+    text-decoration: underline; 
+}
+
+table {
+    margin: 30px auto;
+    border: 1px solid #140202;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 90%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.container{
+    position : center;
+}
+
+
+th, td {
+    padding: 12px 16px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #140202;
+    white-space: nowrap;
+    color:#1f0707;
+}
+
+
+th {
+    background-color: rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+}
+
+td a {
+    color: rgb(39, 12, 12, 0.75);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.estagio-card {
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.estagio-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size : 35px;
+    color : #201401
+}
+
+.estagio-card p {
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.form-footer {
+    font-weight: 650;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.form-footer a {
+    color: #8d8273;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+td:nth-child(1), th:nth-child(1) { min-width: 180px; } /* Empresa */
+td:nth-child(2), th:nth-child(2) { min-width: 200px; } /* Tipo */

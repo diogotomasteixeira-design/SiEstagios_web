@@ -69,55 +69,55 @@ $estagios = $result->fetch_all(MYSQLI_ASSOC);
 
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <title>SiEstagios</title>
-    <link rel="stylesheet" href="../php-css/style-admin.css">
-</head>
-<body>
-    <h1>Registar Notas - Estágios Finalizados</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>SiEstagios</title>
+        <link rel="stylesheet" href="../../php-css/style-formador.css">
+    </head>
+    <body>
+        <h1>Registar Notas - Estágios Finalizados</h1>
 
-    <?php if ($erro): ?>
-        <p style="color:red; font-weight:bold;"><?= htmlspecialchars($erro) ?></p>
-    <?php endif; ?>
+            <?php if ($erro): ?>
+                <p style="color:red; font-weight:bold;"><?= htmlspecialchars($erro) ?></p>
+            <?php endif; ?>
 
-    <table border="1" cellpadding="5" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Aluno</th>
-                <th>Início</th>
-                <th>Fim</th>
-                <th>Nota Empresa</th>
-                <th>Nota Escola</th>
-                <th>Nota Relatório</th>
-                <th>Nota Procura</th>
-                <th>Nota Final</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($estagios as $estagio): ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($estagio['aluno']) ?></td>
-                    <td><?= htmlspecialchars($estagio['data_inicio']) ?></td>
-                    <td><?= htmlspecialchars($estagio['data_fim']) ?></td>
-                    <td><?= htmlspecialchars($estagio['nota_empresa']) ?></td>
-                    <td><?= htmlspecialchars($estagio['nota_escola']) ?></td>
-                    <td><?= htmlspecialchars($estagio['nota_relatorio']) ?></td>
-                    <td><?= htmlspecialchars($estagio['nota_procura']) ?></td>
-                    <td><?= htmlspecialchars($estagio['nota_final']) ?></td>
-                    <td>
-                        <?php if (!is_null($estagio['data_fim']) && strtotime($estagio['data_fim']) < time()): ?>
-                            <a href="editar_notas.php?empresa_id=<?= $estagio['estabelecimento_empresa_id'] ?>&estabelecimento_id=<?= $estagio['estabelecimento_id'] ?>&aluno_id=<?= $estagio['aluno_id'] ?>">Modificar Notas</a>
-                        <?php else: ?>
-                            -
-                        <?php endif; ?>
-                    </td>
+                    <th>Aluno</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Nota Empresa</th>
+                    <th>Nota Escola</th>
+                    <th>Nota Relatório</th>
+                    <th>Nota Procura</th>
+                    <th>Nota Final</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($estagios as $estagio): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($estagio['aluno']) ?></td>
+                        <td><?= htmlspecialchars($estagio['data_inicio']) ?></td>
+                        <td><?= htmlspecialchars($estagio['data_fim']) ?></td>
+                        <td><?= htmlspecialchars($estagio['nota_empresa']) ?></td>
+                        <td><?= htmlspecialchars($estagio['nota_escola']) ?></td>
+                        <td><?= htmlspecialchars($estagio['nota_relatorio']) ?></td>
+                        <td><?= htmlspecialchars($estagio['nota_procura']) ?></td>
+                        <td><?= htmlspecialchars($estagio['nota_final']) ?></td>
+                        <td>
+                            <?php if (!is_null($estagio['data_fim']) && strtotime($estagio['data_fim']) < time()): ?>
+                                <a href="editar_notas.php?empresa_id=<?= $estagio['estabelecimento_empresa_id'] ?>&estabelecimento_id=<?= $estagio['estabelecimento_id'] ?>&aluno_id=<?= $estagio['aluno_id'] ?>">Modificar Notas</a>
+                            <?php else: ?>
+                                -
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
-    <p><a href="../portal_formador.html">Voltar</a></p>
-</body>
+        <p><a href="../portal_formador.html">Voltar</a></p>
+    </body>
 </html>

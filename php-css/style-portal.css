@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Fjalla+One&family=Roboto+Slab:wght@100..900&family=Syne:wght@400..800&display=swap');
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+    font-family: 'Syne', sans-serif;
+}
+
+body{
+    display : flex;
+    justify-content : center;
+    min-height : 100vh;
+    align-items : center;
+    background : url(../Imagens/bg.png) no-repeat;
+    background-size : cover;
+    background-position : center;
+}
+
+.container{
+    width: 800px;
+    height : 300px;
+    border: 40px solid rgba(48, 29, 12, 0.2);
+    padding: 40px;
+    border-radius: 160px;
+    text-align: center;
+    box-shadow: 
+        0 0 0 2px rgba(27, 16, 7, 0.4),
+        inset 0 0 0 2px rgba(27, 16, 7, 0.4);
+}
+
+.containerF{
+    width: 800px;
+    height : 250px;
+    border: 40px solid rgba(48, 29, 12, 0.2);
+    padding: 40px;
+    border-radius: 160px;
+    text-align: center;
+    box-shadow: 
+        0 0 0 2px rgba(27, 16, 7, 0.4),
+        inset 0 0 0 2px rgba(27, 16, 7, 0.4);
+}
+
+h1{
+    color : #352001;
+    font-size : 35px;
+    font-weight : 900;
+    text-align : center;
+    margin-top : 8px;
+}
+
+.portal-menu{
+    display : flex;
+    justify-content : center;
+    background-position : center;
+}
+
+.portal-item{
+    width : 90%;
+    height : 100%;
+    background : transparent;
+    outline : none;
+    font-size : 15px;
+    text-align : center;
+    border-radius : 4px;
+    margin-top : 20px;
+}
+
+.portal-btn{
+    font-weight: 650; 
+    color: #8d8273; 
+    text-decoration: none; 
+    font-size : 20px;
+    font-weight : 600;
+}
+
+.portal-btn:hover {
+    text-decoration: underline; 
+}

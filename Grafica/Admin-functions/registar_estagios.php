@@ -100,7 +100,7 @@
             href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../php-css/style-admin.css">
+        <link rel="stylesheet" href="../../php-css/style-admin.css">
     </head>
     <body>
 
@@ -154,7 +154,9 @@
 
         </form>
 
-        <p><a href="verificar_estagios.php">Cancelar</a></p>
-
+        <p>
+            <div class="form-footers">
+                <a href="verificar_estagios.php">Cancelar</a></p>
+            </div>
     </body>
 </html>

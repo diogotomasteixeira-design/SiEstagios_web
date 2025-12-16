@@ -92,7 +92,7 @@
             href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../php-css/style-admin.css">
+        <link rel="stylesheet" href="../../php-css/style-admin.css">
     </head>
     <body>
         <h1>Editar Estágio</h1>
@@ -136,6 +136,10 @@
                 <button type="submit" name="submit">Salvar Alterações</button>
             </form>
         <?php endif; ?>
-        <p><a href="verificar_estagios.php">Voltar</a></p>
+        <p>
+            <div class="form-footers">
+                <a href="verificar_estagios.php">Voltar</a>
+            </div>
+        </p>
     </body>
 </html>
